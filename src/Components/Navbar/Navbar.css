@@ -1,0 +1,102 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 170px;
+}
+
+.tomer {
+
+}
+
+.t {
+    color: #DF8908;
+}
+
+.navbar h1 {
+    font-size: 5rem;
+    font-style: italic;
+
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 60px;
+    font-size: 20px;
+}
+
+
+.desktopMenuListItem {
+    color: white;
+    position: relative; /* To create the underline effect */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scale transitions */
+    cursor: pointer;
+}
+
+.desktopMenuListItem:hover {
+    transform: scale(1.1); /* Slightly scale the item */
+}
+
+.desktopMenuListItem::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #B415FF;
+    transition: width 0.3s ease;
+}
+
+.desktopMenuListItem:hover::before {
+    width: 100%;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.nav-connect {
+    padding: 25px 35px;
+    border-radius: 50px;
+    background: rgb(30, 30, 30); /* Base background color */
+    cursor: pointer;
+    position: relative; /* Make sure the content is positioned relative to the parent */
+    color: white; /* Text color */
+    font-size: 18px; /* Adjust text size */
+}
+
+
+.nav-connect::after, .nav-connect::before,
+.nav-connect::after, .nav-connect::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 2px;
+    border-radius: 50px;
+    background-image: conic-gradient(from var(--angle), #DF8908 0%, #FF1D89 33.33%, #B415FF 66.66%, #DF8908 100%);
+    animation: 3s spin linear infinite;
+}
+
+.nav-connect::before, .nav-connect::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
